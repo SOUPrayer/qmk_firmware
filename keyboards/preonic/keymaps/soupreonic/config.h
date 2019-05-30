@@ -1,10 +1,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include "config_common.h"
-
-#define TAPPING_TOGGLE 2
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6061
@@ -41,13 +37,11 @@
 /* number of backlight levels */
 #define BACKLIGHT_LEVELS 3
 
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCING_DELAY 5
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+#ifdef TAPPING_TOGGLE
+#undef TAPPING_TOGGLE
+#endif
+#define TAPPING_TOGGLE 2
+#define TAPPING_TERM 200
 
 /*
  * Feature disable options
